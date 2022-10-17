@@ -1,5 +1,5 @@
-name: pyiron-0.4.6_build
-version: 0.4.6
+name: pyiron-0.4.7_build
+version: 0.4.7
 
 channels:
   - https://conda.anaconda.org/conda-forge
@@ -13,7 +13,7 @@ specs:
   - jupyterlab
   - nodejs
   - nglview =3.0.3
-  - pyiron =0.4.6
+  - pyiron =0.4.7
   - sphinxdft =3.0.3 [linux]
   - lammps =2021.09.29 [linux|osx]
   - lammps =2018.03.16 [win]
