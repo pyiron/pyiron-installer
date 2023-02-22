@@ -75,7 +75,7 @@ jobs:
         conda install -y --name test -c conda-forge constructor
         mkdir build
         constructor -v --output-dir=build --platform="linux-64" constructor
-        mv pyiron-0.0.0-Linux-x86_64.sh $FILENAME
+        mv ./build/pyiron-0.0.0-Linux-x86_64.sh ./build/$FILENAME
       env:
         FILENAME: pyiron-${{ steps.get_date_info.outputs.date }}-Linux-x86_64.sh
     - name: Upload Release Asset
@@ -124,7 +124,7 @@ jobs:
         conda install -y --name test -c conda-forge constructor
         mkdir build
         constructor -v --output-dir=build --platform="osx-64" constructor
-        mv pyiron-0.0.0-MacOSX-x86_64.pkg $FILENAME
+        mv ./build/pyiron-0.0.0-MacOSX-x86_64.pkg ./build/$FILENAME
       env:
         FILENAME: pyiron-${{ steps.get_date_info.outputs.date }}-MacOSX-x86_64.pkg
     - name: Upload Release Asset
@@ -173,7 +173,7 @@ jobs:
         conda install -y --name test -c conda-forge constructor
         mkdir build
         constructor -v --output-dir=build --platform="win-64" constructor
-        mv pyiron-0.0.0-Windows-x86_64.exe $FILENAME
+        mv ./build/pyiron-0.0.0-Windows-x86_64.exe ./build/$FILENAME
       env:
         FILENAME: pyiron-${{ steps.get_date_info.outputs.date }}-Windows-x86_64.exe
     - name: Upload Release Asset
