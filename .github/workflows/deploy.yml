@@ -4,9 +4,6 @@ on:
   push:
     branches: [ master ]
 
-env:
-  release: 0.4.7
-
 jobs:
   createrelease:
     name: createrelease
@@ -15,14 +12,17 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v1
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +%F)"
     - name: create release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ env.release }}
-        release_name: Release ${{ env.release }}
+        tag_name: ${{ steps.date.outputs.date }}
+        release_name: Release ${{ steps.date.outputs.date }}
         draft: false
         prerelease: false
     - name: Output Release URL File
@@ -66,8 +66,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.get_release_info.outputs.upload_url }}
-        asset_path: ./build/pyiron-${{ env.release }}_build-${{ env.release }}-Linux-x86_64.sh
-        asset_name: pyiron-${{ env.release }}_build-${{ env.release }}-Linux-x86_64.sh
+        asset_path: ./build/pyiron-${{ steps.date.outputs.date }}-Linux-x86_64.sh
+        asset_name: pyiron-${{ steps.date.outputs.date }}-Linux-x86_64.sh
         asset_content_type: application/zip
 
   build_mac:
@@ -103,8 +103,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.get_release_info.outputs.upload_url }}
-        asset_path: ./build/pyiron-${{ env.release }}_build-${{ env.release }}-MacOSX-x86_64.pkg
-        asset_name: pyiron-${{ env.release }}_build-${{ env.release }}-MacOSX-x86_64.pkg 
+        asset_path: ./build/pyiron-${{ steps.date.outputs.date }}-MacOSX-x86_64.pkg
+        asset_name: pyiron-${{ steps.date.outputs.date }}-MacOSX-x86_64.pkg 
         asset_content_type: application/zip
 
   build_win:
@@ -140,6 +140,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.get_release_info.outputs.upload_url }}
-        asset_path: ./build/pyiron-${{ env.release }}_build-${{ env.release }}-Windows-x86_64.exe
-        asset_name: pyiron-${{ env.release }}_build-${{ env.release }}-Windows-x86_64.exe
+        asset_path: ./build/pyiron-${{ steps.date.outputs.date }}-Windows-x86_64.exe
+        asset_name: pyiron-${{ steps.date.outputs.date }}-Windows-x86_64.exe
         asset_content_type: application/zip
