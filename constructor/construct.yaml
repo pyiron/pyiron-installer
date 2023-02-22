@@ -1,5 +1,4 @@
-name: pyiron-0.4.7_build
-version: 0.4.7
+name: pyiron
 
 channels:
   - https://conda.anaconda.org/conda-forge
