@@ -51,12 +51,6 @@ jobs:
       with:
         auto-update-conda: true
         python-version: 3.8
-    - name: Build Constructor
-      shell: bash -l {0}
-      run: |
-        conda install -y --name test -c conda-forge constructor
-        mkdir build
-        constructor -v --output-dir=build --platform="linux-64" constructor
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v1
       with:
@@ -75,6 +69,15 @@ jobs:
       run: |
         value=`cat date/date.txt`
         echo ::set-output name=date::$value
+    - name: Build Constructor
+      shell: bash -l {0}
+      run: |
+        conda install -y --name test -c conda-forge constructor
+        mkdir build
+        constructor -v --output-dir=build --platform="linux-64" constructor
+        mv *-Linux-x86_64.sh $FILENAME
+      env:
+        FILENAME: pyiron-${{ steps.get_date_info.outputs.date }}-Linux-x86_64.sh
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1.0.1
@@ -97,12 +100,6 @@ jobs:
       with:
         auto-update-conda: true
         python-version: 3.8
-    - name: Build Constructor
-      shell: bash -l {0}
-      run: |
-        conda install -y --name test -c conda-forge constructor
-        mkdir build
-        constructor -v --output-dir=build --platform="osx-64" constructor
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v1
       with:
@@ -121,6 +118,15 @@ jobs:
       run: |
         value=`cat date/date.txt`
         echo ::set-output name=date::$value
+    - name: Build Constructor
+      shell: bash -l {0}
+      run: |
+        conda install -y --name test -c conda-forge constructor
+        mkdir build
+        constructor -v --output-dir=build --platform="osx-64" constructor
+        mv *-MacOSX-x86_64.pkg $FILENAME
+      env:
+        FILENAME: pyiron-${{ steps.get_date_info.outputs.date }}-MacOSX-x86_64.pkg
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1.0.1
@@ -143,12 +149,6 @@ jobs:
       with:
         auto-update-conda: true
         python-version: 3.8
-    - name: Build Constructor
-      shell: bash -l {0}
-      run: |
-        conda install -y --name test -c conda-forge constructor
-        mkdir build
-        constructor -v --output-dir=build --platform="win-64" constructor
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v1
       with:
@@ -167,6 +167,15 @@ jobs:
       run: |
         $value = Get-Content date/date.txt
         echo "::set-output name=date::$value"
+    - name: Build Constructor
+      shell: bash -l {0}
+      run: |
+        conda install -y --name test -c conda-forge constructor
+        mkdir build
+        constructor -v --output-dir=build --platform="win-64" constructor
+        mv *-Windows-x86_64.exe $FILENAME
+      env:
+        FILENAME: pyiron-${{ steps.get_date_info.outputs.date }}-Windows-x86_64.exe
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1.0.1
