@@ -7,15 +7,16 @@ channels:
   - https://conda.anaconda.org/pyiron [win]
 
 specs:
-  - python =3.9
+  - python =3.11 [linux|osx]
+  - python =3.9 [win]
   - conda
   - notebook
   - jupyterlab
   - nodejs
-  - nglview =3.0.3
-  - pyiron =0.4.7
-  - sphinxdft =3.0.7 [linux]
-  - lammps =2022.06.23 [linux|osx]
+  - nglview =3.1.0
+  - pyiron =0.5.1
+  - sphinxdft =3.1 [linux]
+  - lammps =2023.08.02 [linux|osx]
   - lammps =2018.03.16 [win]
 
 post_install: post_build_win.bat [win]
