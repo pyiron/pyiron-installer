@@ -50,7 +50,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v2
       with:
         auto-update-conda: true
-        python-version: 3.8
+        python-version: "3.11"
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v1
       with:
@@ -99,7 +99,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v2
       with:
         auto-update-conda: true
-        python-version: 3.8
+        python-version: "3.11"
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v1
       with:
@@ -148,7 +148,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v2
       with:
         auto-update-conda: true
-        python-version: 3.8
+        python-version: "3.11"
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v1
       with:
