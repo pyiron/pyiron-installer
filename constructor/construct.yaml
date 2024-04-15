@@ -7,16 +7,16 @@ channels:
   - https://conda.anaconda.org/pyiron [win]
 
 specs:
-  - python =3.11
+  - python =3.12
   - conda
   - notebook
   - jupyterlab
   - nodejs
   - nglview =3.1.2
   - pyiron =0.5.2
-  - pyiron_atomistics =0.5.0
+  - pyiron_atomistics =0.5.1
   - sphinxdft =3.1 [linux]
-  - lammps =2023.08.02 [linux|osx]
+  - lammps =2024.02.07=*_openmpi_* [linux|osx]
   - lammps =2018.03.16 [win]
 
 post_install: post_build_win.bat [win]
