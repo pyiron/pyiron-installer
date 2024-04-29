@@ -14,7 +14,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
         python-version: "3.12"
-        mamba-version: "*"
+        mamba-version: "latest"
         channels: conda-forge
         miniforge-variant: Mambaforge
         channel-priority: strict
@@ -22,7 +22,7 @@ jobs:
     - name: Build Constructor
       shell: bash -l {0}
       run: |
-        conda install -y -c conda-forge constructor
+        conda install -y --name test -c conda-forge constructor
         mkdir build
         constructor -v --output-dir=build --platform="linux-64" constructor
 
@@ -32,14 +32,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
-        auto-update-conda: true
         python-version: "3.12"
+        mamba-version: "latest"
+        channels: conda-forge
+        miniforge-variant: Mambaforge
+        channel-priority: strict
+        auto-update-conda: true
     - name: Build Constructor
       shell: bash -l {0}
       run: |
-        conda install -y -c conda-forge constructor
+        conda install -y --name test -c conda-forge constructor
         mkdir build
         constructor -v --output-dir=build --platform="osx-64" constructor
 
@@ -49,13 +53,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
-        auto-update-conda: true
         python-version: "3.12"
+        mamba-version: "latest"
+        channels: conda-forge
+        miniforge-variant: Mambaforge
+        channel-priority: strict
+        auto-update-conda: true
     - name: Build Constructor
       shell: bash -l {0}
       run: |
-        conda install -y -c conda-forge constructor
+        conda install -y --name test -c conda-forge constructor
         mkdir build
         constructor -v --output-dir=build --platform="win-64" constructor
