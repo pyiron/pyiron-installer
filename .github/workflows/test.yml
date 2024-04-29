@@ -11,10 +11,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
-        auto-update-conda: true
         python-version: "3.12"
+        mamba-version: "*"
+        channels: conda-forge
+        miniforge-variant: Mambaforge
+        channel-priority: strict
+        auto-update-conda: true
     - name: Build Constructor
       shell: bash -l {0}
       run: |
@@ -28,10 +32,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
-        auto-update-conda: true
         python-version: "3.12"
+        mamba-version: "*"
+        channels: conda-forge
+        miniforge-variant: Mambaforge
+        channel-priority: strict
+        auto-update-conda: true
     - name: Build Constructor
       shell: bash -l {0}
       run: |
@@ -45,10 +53,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
-        auto-update-conda: true
         python-version: "3.12"
+        mamba-version: "*"
+        channels: conda-forge
+        miniforge-variant: Mambaforge
+        channel-priority: strict
+        auto-update-conda: true
     - name: Build Constructor
       shell: bash -l {0}
       run: |
