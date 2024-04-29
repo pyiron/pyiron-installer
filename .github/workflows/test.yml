@@ -14,7 +14,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
         python-version: "3.12"
-        mamba-version: "latest"
+        mamba-version: "*"
         channels: conda-forge
         miniforge-variant: Mambaforge
         channel-priority: strict
@@ -35,7 +35,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
         python-version: "3.12"
-        mamba-version: "latest"
+        mamba-version: "*"
         channels: conda-forge
         miniforge-variant: Mambaforge
         channel-priority: strict
@@ -56,7 +56,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
         python-version: "3.12"
-        mamba-version: "latest"
+        mamba-version: "*"
         channels: conda-forge
         miniforge-variant: Mambaforge
         channel-priority: strict
