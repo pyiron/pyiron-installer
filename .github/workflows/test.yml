@@ -22,7 +22,7 @@ jobs:
     - name: Build Constructor
       shell: bash -l {0}
       run: |
-        conda install -y --name test -c conda-forge constructor
+        conda install -y -c conda-forge constructor
         mkdir build
         constructor -v --output-dir=build --platform="linux-64" constructor
 
@@ -39,7 +39,7 @@ jobs:
     - name: Build Constructor
       shell: bash -l {0}
       run: |
-        conda install -y --name test -c conda-forge constructor
+        conda install -y -c conda-forge constructor
         mkdir build
         constructor -v --output-dir=build --platform="osx-64" constructor
 
@@ -56,6 +56,6 @@ jobs:
     - name: Build Constructor
       shell: bash -l {0}
       run: |
-        conda install -y --name test -c conda-forge constructor
+        conda install -y -c conda-forge constructor
         mkdir build
         constructor -v --output-dir=build --platform="win-64" constructor
