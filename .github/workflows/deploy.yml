@@ -47,7 +47,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: conda-incubator/setup-miniconda@v3
+    - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
         python-version: "3.12"
         mamba-version: "*"
@@ -100,7 +100,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: conda-incubator/setup-miniconda@v3
+    - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
         python-version: "3.12"
         mamba-version: "*"
@@ -153,7 +153,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: conda-incubator/setup-miniconda@v3
+    - uses: conda-incubator/setup-miniconda@v2.2.0
       with:
         python-version: "3.12"
         mamba-version: "*"
