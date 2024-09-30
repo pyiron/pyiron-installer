@@ -11,7 +11,7 @@ jobs:
     
     steps:
     - name: Check out code
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +%F)"
@@ -35,7 +35,7 @@ jobs:
         name: release_url
         path: release_url.txt
     - name: Save Date File for publish
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: date
         path: date.txt
@@ -46,8 +46,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2.2.0
+    - uses: actions/checkout@v4
+    - uses: conda-incubator/setup-miniconda@v3
       with:
         python-version: "3.12"
         mamba-version: "*"
@@ -56,22 +56,22 @@ jobs:
         channel-priority: strict
         auto-update-conda: true
     - name: Load Release URL File from release job
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: release_url
     - name: Load Date File from release job
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: date
     - name: Get Release File Name & Upload URL
       id: get_release_info
       run: |
-        value=`cat release_url/release_url.txt`
+        value=`cat release_url.txt`
         echo ::set-output name=upload_url::$value
     - name: Get Release File Name & Upload URL
       id: get_date_info
       run: |
-        value=`cat date/date.txt`
+        value=`cat date.txt`
         echo ::set-output name=date::$value
     - name: Build Constructor
       shell: bash -l {0}
@@ -99,8 +99,8 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2.2.0
+    - uses: actions/checkout@v4
+    - uses: conda-incubator/setup-miniconda@v3
       with:
         python-version: "3.12"
         mamba-version: "*"
@@ -109,22 +109,22 @@ jobs:
         channel-priority: strict
         auto-update-conda: true
     - name: Load Release URL File from release job
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: release_url
     - name: Load Date File from release job
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: date
     - name: Get Release File Name & Upload URL
       id: get_release_info
       run: |
-        value=`cat release_url/release_url.txt`
+        value=`cat release_url.txt`
         echo ::set-output name=upload_url::$value
     - name: Get Release File Name & Upload URL
       id: get_date_info
       run: |
-        value=`cat date/date.txt`
+        value=`cat date.txt`
         echo ::set-output name=date::$value
     - name: Build Constructor
       shell: bash -l {0}
@@ -152,8 +152,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2.2.0
+    - uses: actions/checkout@v4
+    - uses: conda-incubator/setup-miniconda@v3
       with:
         python-version: "3.12"
         mamba-version: "*"
@@ -162,22 +162,22 @@ jobs:
         channel-priority: strict
         auto-update-conda: true
     - name: Load Release URL File from release job
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: release_url
     - name: Load Date File from release job
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: date
     - name: Get Release File Name & Upload URL
       id: get_release_info
       run: |
-        $value = Get-Content release_url/release_url.txt
+        $value = Get-Content release_url.txt
         echo "::set-output name=upload_url::$value"
     - name: Get Release File Name & Upload URL
       id: get_date_info
       run: |
-        $value = Get-Content date/date.txt
+        $value = Get-Content date.txt
         echo "::set-output name=date::$value"
     - name: Build Constructor
       shell: bash -l {0}
