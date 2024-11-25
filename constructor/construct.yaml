@@ -12,7 +12,7 @@ specs:
   - notebook
   - jupyterlab
   - nodejs
-  - nglview =3.1.2
+  - nglview =3.1.4
   - pyiron =0.5.2
   - pyiron_atomistics =0.6.17
   - sphinxdft =3.1 [linux]
